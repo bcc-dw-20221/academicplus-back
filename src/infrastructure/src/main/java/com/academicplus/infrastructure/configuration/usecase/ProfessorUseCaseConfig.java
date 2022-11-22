@@ -1,5 +1,6 @@
 package com.academicplus.infrastructure.configuration.usecase;
 
+import com.academicplus.aplication.gateway.PasswordEncoder;
 import com.academicplus.aplication.professor.CreateProfessorUseCase;
 import com.academicplus.domain.person.PersonRepository;
 import com.academicplus.domain.professor.ProfessorRepository;

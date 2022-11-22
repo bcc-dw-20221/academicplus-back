@@ -12,6 +12,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,6 +30,7 @@ public class CourseController {
         this.createCourseUseCase = Objects.requireNonNull(createCourseUseCase);
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ROOT', 'ROLE_ADMIN')")
     @PostMapping
     @Operation(summary = "Create new course")
     @ApiResponses(value = {
@@ -44,6 +46,7 @@ public class CourseController {
 //    TODO: remove this
     @Autowired
     private CourseRepository courseRepository;
+    @PreAuthorize("hasAnyRole('ROLE_ROOT', 'ROLE_ADMIN')")
     @GetMapping
     public List<Course> findAll() {
         return courseRepository.findAll();

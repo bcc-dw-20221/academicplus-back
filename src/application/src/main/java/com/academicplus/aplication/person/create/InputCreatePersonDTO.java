@@ -1,15 +1,14 @@
-package com.academicplus.aplication.person;
+package com.academicplus.aplication.person.create;
 
 import com.academicplus.aplication.shared.AddressDTO;
-import com.academicplus.domain.shared.Genre;
+import com.academicplus.domain.shared.Gender;
 
 import java.time.LocalDate;
 
-public record OutputCreatePersonDTO(
-        String id,
+public record InputCreatePersonDTO(
         String name,
         String cpf,
-        Genre sex,
+        Gender gender,
         String motherName,
         String email,
         LocalDate birthDate,

@@ -3,6 +3,8 @@ package com.academicplus.infrastructure.api.professor;
 import com.academicplus.aplication.professor.CreateProfessorUseCase;
 import com.academicplus.aplication.professor.InputRegisterProfessorDTO;
 import com.academicplus.aplication.professor.OutputRegisterProfessorDTO;
+import com.academicplus.domain.person.Person;
+import com.academicplus.domain.person.PersonRepository;
 import com.academicplus.domain.professor.Professor;
 import com.academicplus.domain.professor.ProfessorRepository;
 import io.swagger.v3.oas.annotations.Operation;
@@ -12,6 +14,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,6 +29,7 @@ public class ProfessorController {
         this.createProfessorUseCase = createProfessorUseCase;
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ROOT', 'ROLE_ADMIN')")
     @PostMapping
     @Operation(summary = "Register professor")
     @ApiResponses(value = {
@@ -38,11 +42,12 @@ public class ProfessorController {
         return ResponseEntity.status(HttpStatus.CREATED).body(output);
     }
 
-//    TODO: Remove this;
+    //    TODO: Remove this
     @Autowired
-    private ProfessorRepository professorRepository;
+    ProfessorRepository professorRepository;
+    @PreAuthorize("hasAnyRole('ROLE_ROOT', 'ROLE_ADMIN')")
     @GetMapping
-    private List<Professor> findAll() {
+    public List<Professor> findAll() {
         return professorRepository.findAll();
     }
 }

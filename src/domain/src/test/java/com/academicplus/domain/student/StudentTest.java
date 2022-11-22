@@ -1,7 +1,7 @@
 package com.academicplus.domain.student;
 
 import com.academicplus.domain.shared.Address;
-import com.academicplus.domain.shared.Genre;
+import com.academicplus.domain.shared.Gender;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -15,7 +15,7 @@ class StudentTest {
         final var expectedRegister = StudentID.from("20182" + "13" + "500" + "0327");
         final var expectedName = "Ernesto Moraes";
         final var expectedCpf = "111.111.111-11";
-        final var expectedSex = Genre.MALE;
+        final var expectedSex = Gender.MALE;
         final var expectedMom = "Mãe do Ernesto";
         final var expectedEmail = "ernesto@email.com";
         final var expectedBirthDate = LocalDate.parse("1999-04-10");

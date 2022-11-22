@@ -26,9 +26,14 @@ public class Professor extends AggregateRoot<ProfessorID> {
         this.personID = personID;
         this.universityID = universityID;
         this.qualifications = new ArrayList<>();
+        this.validate();
     }
 
-    public static Professor create(final ProfessorID professorID, final PersonID personID, final UniversityID universityID) {
+    public static Professor create(
+            final ProfessorID professorID,
+            final PersonID personID,
+            final UniversityID universityID
+    ) {
         final var now = Instant.now();
         return new Professor(professorID, personID, universityID, now, now, null);
     }

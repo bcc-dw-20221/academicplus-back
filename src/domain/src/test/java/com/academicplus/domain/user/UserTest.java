@@ -1,7 +1,7 @@
 package com.academicplus.domain.user;
 
 import com.academicplus.domain.shared.Address;
-import com.academicplus.domain.shared.Genre;
+import com.academicplus.domain.shared.Gender;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -15,7 +15,7 @@ class UserTest {
         final var userId = UserID.from("1");
         final var name = "Gibu";
         final var cpf = "111.111.111-85";
-        final var sex = Genre.MALE;
+        final var sex = Gender.MALE;
         final var motherName = "Giboia";
         final var email = "gibu@email.com";
         final var birthDate = LocalDate.parse("1999-09-29");

@@ -1,7 +1,6 @@
 package com.academicplus.aplication.university.create;
 
 import com.academicplus.aplication.shared.AddressDTO;
-import com.academicplus.domain.shared.Address;
 import com.academicplus.domain.university.University;
 import com.academicplus.domain.university.UniversityID;
 import com.academicplus.domain.university.UniversityRepository;

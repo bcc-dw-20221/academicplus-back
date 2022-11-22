@@ -1,6 +1,7 @@
 package com.academicplus.infrastructure.configuration.usecase;
 
-import com.academicplus.aplication.person.CreatePersonUseCase;
+import com.academicplus.aplication.person.create.CreatePersonUseCase;
+import com.academicplus.aplication.person.find.GetPersonByCpfUseCase;
 import com.academicplus.domain.person.PersonRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,5 +19,10 @@ public class PersonUseCaseConfig {
     @Bean
     public CreatePersonUseCase createPersonUseCase() {
         return new CreatePersonUseCase(personRepository);
+    }
+
+    @Bean
+    public GetPersonByCpfUseCase getPersonByCpfUseCase() {
+        return new GetPersonByCpfUseCase(personRepository);
     }
 }

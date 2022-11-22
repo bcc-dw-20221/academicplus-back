@@ -14,6 +14,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,6 +35,7 @@ public class UniversityController {
         this.findUniversityByIdUseCase = Objects.requireNonNull(findUniversityByIdUseCase);
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ROOT', 'ROLE_ADMIN')")
     @PostMapping
     @Operation(summary = "Create new university")
     @ApiResponses(value = {
@@ -46,6 +48,7 @@ public class UniversityController {
         return ResponseEntity.status(HttpStatus.CREATED).body(output);
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ROOT', 'ROLE_ADMIN')")
     @GetMapping("/{universityId}")
     @Operation(summary = "Find university by id")
     @ApiResponses(value = {
@@ -61,6 +64,7 @@ public class UniversityController {
 
 //    TODO: Remove this
     @Autowired  private UniversityRepository universityRepository;
+    @PreAuthorize("hasAnyRole('ROLE_ROOT', 'ROLE_ADMIN')")
     @GetMapping
     public List<University> findAll() {
         return universityRepository.findAll();

@@ -1,5 +1,6 @@
 package com.academicplus.aplication.professor;
 
+import com.academicplus.aplication.gateway.PasswordEncoder;
 import com.academicplus.domain.exception.DomainException;
 import com.academicplus.domain.person.PersonID;
 import com.academicplus.domain.person.PersonRepository;
@@ -27,24 +28,20 @@ public class CreateProfessorUseCase {
     public OutputRegisterProfessorDTO execute(final InputRegisterProfessorDTO input) {
         final var personId = PersonID.from(input.personId());
         final var universityId = UniversityID.from(input.universityId());
-
-        final var exists = verifyIfPersonAndUniversityExists(personId, universityId);
-        if (!exists)
-            throw new DomainException("Person or university not found");
-
+        validation(personId, universityId);
         final var professor = Professor.create(ProfessorID.unique(), personId, universityId);
         professor.addQualification(input.qualifications());
         this.professorRepository.create(professor);
         return new OutputRegisterProfessorDTO(professor.getId().getValue(), professor.getPersonID().getValue(), professor.getUniversityID().getValue());
     }
 
-    private boolean verifyIfPersonAndUniversityExists(PersonID personId, UniversityID universityId) {
+    private void validation(PersonID personId, UniversityID universityId) {
         final var existsPerson = this.personRepository.existsById(personId);
-        final var existsUniversity = this.universityRepository.existsById(universityId);
-        return (existsPerson || existsUniversity);
-    }
+        if (!existsPerson)
+            throw new DomainException("Person not found");
 
-    private boolean verifyIfPersonExists(PersonID personId) {
-        return this.personRepository.existsById(personId);
+        final var existsUniversity = this.universityRepository.existsById(universityId);
+        if (!existsUniversity)
+            throw new DomainException("University not found");
     }
 }

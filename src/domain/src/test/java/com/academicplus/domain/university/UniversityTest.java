@@ -10,8 +10,8 @@ class UniversityTest {
     @Test
     void shouldCreateAnUniversity() {
         final var expectedId = UniversityID.from("13");
-        final var expectedAddress = new Address("Rua Ana Teles", "45", "62842-000");
         final var expectedName = "Campus Aracati";
+        final var expectedAddress = new Address("Rua Ana Teles", "45", "62842-000");
 
         final var university = University.create(expectedId, expectedName, expectedAddress);
 
@@ -26,8 +26,8 @@ class UniversityTest {
     @Test
     void shouldUpdateAddressOfAnUniversity() {
         final var expectedId = UniversityID.from("13");
-        final var oldAddress = new Address("Rua Ana Teles", "46", "62842-000");
         final var expectedName = "Campus Aracati";
+        final var oldAddress = new Address("Rua Ana Teles", "46", "62842-000");
 
         final var university = University.create(expectedId, expectedName, oldAddress);
 

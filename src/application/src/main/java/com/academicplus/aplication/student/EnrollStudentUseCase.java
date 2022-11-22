@@ -38,6 +38,6 @@ public class EnrollStudentUseCase {
 
         final var enrollment = Enrollment.create(EnrollmentID.unique(), personId, courseId);
         this.enrollmentRepository.create(enrollment);
-        return new OutputEnrollStudentDTO(enrollment.getId().getValue());
+        return OutputEnrollStudentDTO.from(enrollment.getId().getValue());
     }
 }

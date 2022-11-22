@@ -13,11 +13,13 @@ class ProfessorTest {
     @Test
     void shouldCreateAProfessor() {
         final var professorId = ProfessorID.from("1");
+        final var username = "prof@email.com";
+        final var password = "profPass";
         final var personId = PersonID.from("1");
         final var universityId = UniversityID.from("1");
         final var qualifications = List.of("A", "B", "C");
 
-        final var professor = Professor.create(professorId, personId, universityId);
+        final var professor = Professor.create(professorId, personId, universityId, username, password);
 
         professor.addQualification(qualifications);
 

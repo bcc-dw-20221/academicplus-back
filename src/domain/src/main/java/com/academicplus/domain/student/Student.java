@@ -2,7 +2,7 @@ package com.academicplus.domain.student;
 
 import com.academicplus.domain.shared.Address;
 import com.academicplus.domain.shared.Person;
-import com.academicplus.domain.shared.Genre;
+import com.academicplus.domain.shared.Gender;
 
 import java.time.Instant;
 import java.time.LocalDate;
@@ -12,7 +12,7 @@ public class Student extends Person<StudentID> {
             final StudentID studentID,
             final String name,
             final String cpf,
-            final Genre sex,
+            final Gender sex,
             final String motherName,
             final String email,
             final LocalDate birthDate,
@@ -29,7 +29,7 @@ public class Student extends Person<StudentID> {
             final StudentID register,
             final String name,
             final String cpf,
-            final Genre sex,
+            final Gender sex,
             final String motherName,
             final String email,
             final LocalDate birthDate,

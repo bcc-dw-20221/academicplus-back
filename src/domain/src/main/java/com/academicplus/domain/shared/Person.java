@@ -9,7 +9,7 @@ import java.time.LocalDate;
 public abstract class Person<ID extends Identifier> extends AggregateRoot<ID> {
     protected String name;
     protected String cpf;
-    protected Genre sex;
+    protected Gender sex;
     protected String motherName;
     protected String email;
     protected LocalDate birthDate;
@@ -19,7 +19,7 @@ public abstract class Person<ID extends Identifier> extends AggregateRoot<ID> {
             final ID id,
             final String name,
             final String cpf,
-            final Genre sex,
+            final Gender sex,
             final String motherName,
             final String email,
             final LocalDate birthDate,
@@ -46,7 +46,7 @@ public abstract class Person<ID extends Identifier> extends AggregateRoot<ID> {
         return cpf;
     }
 
-    public Genre getSex() {
+    public Gender getSex() {
         return sex;
     }
 

@@ -1,0 +1,15 @@
+version: '3.1'
+
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: "AcademicPlus#!"
+      POSTGRES_DB: "academic_plus"
+    ports:
+      - "5433:5432"
+    networks:
+      - academic_plus_network
+
+networks:
+  academic_plus_network:

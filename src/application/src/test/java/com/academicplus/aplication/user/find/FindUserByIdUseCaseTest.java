@@ -1,7 +1,7 @@
 package com.academicplus.aplication.user.find;
 
 import com.academicplus.domain.shared.Address;
-import com.academicplus.domain.shared.Genre;
+import com.academicplus.domain.shared.Gender;
 import com.academicplus.domain.user.User;
 import com.academicplus.domain.user.UserID;
 import com.academicplus.domain.user.UserRepository;
@@ -30,7 +30,7 @@ class FindUserByIdUseCaseTest {
         final var userId = UserID.from("1");
         final var name = "Gibu";
         final var cpf = "111.111.111-85";
-        final var sex = Genre.MALE;
+        final var sex = Gender.MALE;
         final var motherName = "Giboia";
         final var email = "gibu@email.com";
         final var birthDate = LocalDate.parse("1999-09-29");

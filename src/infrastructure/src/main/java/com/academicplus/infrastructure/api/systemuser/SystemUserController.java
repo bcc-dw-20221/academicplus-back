@@ -31,7 +31,7 @@ public class SystemUserController {
         return ResponseEntity.status(HttpStatus.CREATED).body(output);
     }
 
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyRole('ROLE_ROOT', 'ROLE_ADMIN')")
     @PostMapping
     public ResponseEntity<?> createUser(@RequestBody InputCreateSystemUserDTO input) {
         if (input.roles().contains(Role.ROLE_ROOT))

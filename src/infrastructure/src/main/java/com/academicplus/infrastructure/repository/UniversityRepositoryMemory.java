@@ -1,5 +1,6 @@
 package com.academicplus.infrastructure.repository;
 
+import com.academicplus.domain.shared.Address;
 import com.academicplus.domain.university.University;
 import com.academicplus.domain.university.UniversityID;
 import com.academicplus.domain.university.UniversityRepository;
@@ -12,6 +13,12 @@ import java.util.NoSuchElementException;
 @Repository
 public class UniversityRepositoryMemory implements UniversityRepository {
     private static final List<University> universities = new ArrayList<>();
+
+    static {
+        final var address = new Address("Rua abc", "12", "62800-000");
+        final var university = University.create(UniversityID.from("1"), "IFCE Aracati", address);
+        universities.add(university);
+    }
 
     @Override
     public University create(final University university) {

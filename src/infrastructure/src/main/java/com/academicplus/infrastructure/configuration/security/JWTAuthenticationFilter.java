@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.time.Instant;
 
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
-    public static final int TOKEN_EXPIRATION = 600_000;
+    public static final int TOKEN_EXPIRATION = 86400000;
     public static final String TOKEN_PASS = "STRONG_TOKEN_PASS";
     public static final String TOKEN_CLAIM = "roles";
 
